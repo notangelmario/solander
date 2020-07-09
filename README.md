@@ -10,6 +10,13 @@ Daca vrei sa ajuti proiectul Solander, intra pe server-ul meu de [Discord](https
 * Ca baza de date, si host, foloseste [Firebase](https://firebase.google.com/) (folosit in: Twitch, eToro, etc).
 
 * Solander foloseste o librarie de CSS numita [Ergaleio](https://github.com/clandestinz/ergaleio-library) (proiect personal, folosit in: site-ul Laika Bot).
+## Utilizare
+
+O data ce ai clonat acest repo, trebuie sa rulezi `npm install`. Asta este necesar pentru a instala toate modulele.
+
+Dupa poti rula `npm start` pentru a porni server-ul in dev mode.
+
+Pentru a creea un build static, ruleaza `npm run build`.
 
 ## FAQ
 Q: Nu vad fisierele specifice Firebase. Unde sunt?

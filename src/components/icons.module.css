@@ -7,6 +7,20 @@
 	border-radius: .5rem;
 }
 
+.arrow {
+	width: 0;
+	height: 0;
+	border-top: solid .5rem var(--e-text);
+	border-left: solid .4rem transparent;
+	border-right: solid .4rem transparent;
+	margin-left: .5rem;
+	margin-right: -.5rem;
+	transition: transform .4s ease;
+}
+.arrowAnim {
+	transform: rotate(-180deg) !important
+}
+
 .buttonMenu {
 	margin-left: .5rem;
 	width: 2.5rem;
@@ -17,7 +31,6 @@
 	align-content: center;
 	cursor: pointer;
 }
-
 .buttonMenu > div {
 	position: relative;
 	width: 2.5rem;

@@ -7,13 +7,90 @@
 	height: 3rem;
   	z-index: 2;
   	display: flex!important;
-	flex-flow: row nowrap;
-  	align-content: center;
-    align-items: center;
-    background-color: lightblue!important;
+    box-shadow: 0px 5px 10px -5px var(--e-sec-darkest);
+	flex-flow: row nowrap!important;
+  	align-content: center!important;
+    align-items: center!important;
 }
 .topbar h1 {
 	font-family: 'Fredoka One', cursive;
 	font-size: 24px;
 	margin-left: 1rem;
+}
+.sidebar {
+	position: fixed!important;
+	top: 3rem;
+	/*left: -256px;*/
+	padding: 0!important;
+	text-align: center;
+	height: 100vh;
+	border-top: solid 1px var(--e-sec-darkest);
+	border-right: solid 1px var(--e-sec-darkest);
+	box-shadow: 10px 0px 10px -5px var(--e-sec-darker);
+	width: 256px!important;
+	display: flex!important;
+	flex-flow: column nowrap;
+	z-index: 1;
+	transition: left .5s ease, background-color .5s, box-shadow .5s ease;
+}
+
+.sidebarButton {
+	font-size: 18px;
+	padding: .7rem 3rem;
+	border-bottom: solid 1px var(--e-sec-darkest);
+	cursor: pointer;
+	word-wrap: break-word;
+	display: flex;
+	flex-flow: row nowrap;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	align-items: center;
+}
+
+.submenu {
+	width: 100%;
+	padding: 1rem 0;
+	border-bottom: solid 1px var(--e-sec-darkest);
+	box-shadow: inset 5px 5px 10px -5px #00000050;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+}
+
+.submenu p {
+	font-size: 16px;
+}
+
+.submenu h3 {
+	font-family: 'Fredoka One', cursive;
+}
+.submenuAnim {
+	transition: height .2s ease;
+}
+
+.sidebar .profileSection {
+	padding: 0 5rem;
+	border-bottom: solid 1px var(--e-sec-darkest);
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding: .5rem 0;
+}
+
+.profileSection > div {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	margin-bottom: .5rem;
+	background-position: center;
+	background-size: cover;
+}
+
+.profileSection > span {
+	font-weight: bold;
+	font-size: 16px;
 }

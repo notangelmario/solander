@@ -3,12 +3,14 @@ import Tag from '../icons/Tag'
 import ButtonMenu from '../icons/ButtonMenu'
 import styles from '../style.module.css'
 
-export default function Topbar() {
-    return(
+export default class Topbar extends React.Component {
+    render(){
+        return(
         <div className={[styles.topbar, "e-section"].join(' ')}>
-            <ButtonMenu></ButtonMenu>
-            <h1>Solander</h1>
+            <ButtonMenu toggleSidebar={this.props.toggleSidebar} sidebarOpen={this.props.sidebarOpen}></ButtonMenu>
+        <h1>Solander</h1>
             <Tag>BETA</Tag>
         </div>
-    )
+        )
+    }
 }

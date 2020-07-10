@@ -61,13 +61,13 @@
 	border-radius: 1rem;
 	transition: transform .2s ease, top .2s ease;
 }
-.buttonMenu-anim {
+.buttonMenuAnim {
 	transform: rotate(225deg)!important;
 }
-.buttonMenu-anim::after {
+.buttonMenuAnim::after {
 	filter: opacity(0)!important;
 }
-.buttonMenu-anim::before {
+.buttonMenuAnim::before {
 	top: 0!important;
 	transform: rotate(90deg)!important;
 }

@@ -11,3 +11,13 @@
     --e-accent-darkest: #01488b;
     --e-accent-text: #ffffff;
 }
+
+.e-button.wide {
+    width: 100%;
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+}
+.e-button {
+    position: relative;
+}

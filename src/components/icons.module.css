@@ -1,0 +1,60 @@
+.tag {
+	font-size: 10px;
+	color: white;
+	background-color: rebeccapurple;
+	margin: 0 .5rem;
+	padding: .3rem .4rem;
+	border-radius: .5rem;
+}
+
+.buttonMenu {
+	margin-left: .5rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	cursor: pointer;
+}
+
+.buttonMenu > div {
+	position: relative;
+	width: 2.5rem;
+	height: .5rem;
+	background-color: var(--e-text);
+	border-radius: 1rem;
+	transition: transform .5s ease-in-out;
+}
+.buttonMenu > div::after {
+	content: '';
+	position: absolute;
+	top: -10px;
+	left: 0;
+	width: 2.5rem;
+	height: .5rem;
+	background-color: var(--e-text);
+	border-radius: 1rem;
+	transition: filter .5s ease-in-out;
+}
+.buttonMenu > div::before {
+	content: '';
+	position: absolute;
+	top: 10px;
+	left: 0;
+	width: 2.5rem;
+	height: .5rem;
+	background-color: var(--e-text);
+	border-radius: 1rem;
+	transition: transform .2s ease, top .2s ease;
+}
+.buttonMenu-anim {
+	transform: rotate(225deg)!important;
+}
+.buttonMenu-anim::after {
+	filter: opacity(0)!important;
+}
+.buttonMenu-anim::before {
+	top: 0!important;
+	transform: rotate(90deg)!important;
+}

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.topbar {
+	position: fixed;
+	width: 100vw;
+	height: 3rem;
+  	z-index: 2;
+  	display: flex!important;
+	flex-flow: row nowrap;
+  	align-content: center;
+    align-items: center;
+    background-color: lightblue!important;
+}
+.topbar h1 {
+	font-family: 'Fredoka One', cursive;
+	font-size: 24px;
+	margin-left: 1rem;
+}

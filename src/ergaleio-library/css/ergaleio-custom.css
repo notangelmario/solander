@@ -1,15 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-:root {
-    --e-pri: #22223b;
-    --e-sec: #c9ada7;
-    --e-sec-darker: #9a8c98;
-    --e-sec-darkest: #4a4e69;
-    --e-text: #ffffff;
-
+:root {    
     --e-accent: #1e88e5;
     --e-accent-darker: #005cb2;
     --e-accent-darkest: #01488b;
-    --e-accent-text: #ffffff;
+    --e-accent-text: #ffffff; 
+}
+
+.dark {
+    --e-pri: #151925;
+    --e-sec: #293241;
+    --e-sec-darker: #1d2431;
+    --e-sec-darkest: #11161f;
+    --e-text: #ffffff;
+
+    --e-map-invert: invert(1);
+
+    background-color: var(--e-sec-darkest);
+}
+.light {
+    --e-pri: #f6fff8;
+    --e-sec: #eaf4f4;
+    --e-sec-darker: #cce3de;
+    --e-sec-darkest: #a4c3b2;
+    --e-text: #000000;
+
+    background-color: var(--e-sec);
+}
+
+* {
+    transition: background-color .5s ease, color 1s ease;
 }
 
 .e-button.wide {
@@ -20,4 +39,10 @@
 }
 .e-button {
     position: relative;
+}
+
+.leaflet-container {
+    filter: var(--e-map-invert);
+    background-color: var(--e-bkg);
+    transition: filter .5s ease;
 }

@@ -1,11 +1,11 @@
 import React from 'react'
-import './terms.css'
+import './infoPage.css'
 
-export default class Terms extends React.Component {
+export default class InfoPage extends React.Component {
     render() {
         return (
             <div id='page'>
-                <section>
+				<section>
                     <p><strong>ATENȚIE!</strong> Solander este înca în faza de dezvoltare. Acesta poate fii folosit de oricine totuși funcțiile acestuia sunt limitate locuitorilor din Ciorogârla.</p>
                 </section>
 			    <p>Aceștia sunt termenii de utilizare și confidențialitate, mici notițe despre aplicație și planuri:</p>

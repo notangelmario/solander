@@ -12,6 +12,16 @@
 	transform: rotate(-180deg) !important
 }
 
+.logo,
+.logo > span {
+	font-family: 'Fredoka One', cursive;
+	font-size: 18px;
+	transition: font-size .2s ease, background-color .5s ease, color 1s ease;;
+}
+.logo > span:hover {
+	font-size: 20px;
+}
+
 .buttonMenu {
 	margin-left: .5rem;
 	width: 2.5rem;

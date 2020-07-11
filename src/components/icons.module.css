@@ -1,12 +1,3 @@
-.tag {
-	font-size: 10px;
-	color: white;
-	background-color: rebeccapurple;
-	margin: 0 .5rem;
-	padding: .3rem .4rem;
-	border-radius: .5rem;
-}
-
 .arrow {
 	width: 0;
 	height: 0;
@@ -70,4 +61,170 @@
 .buttonMenuAnim::before {
 	top: 0!important;
 	transform: rotate(90deg)!important;
+}
+
+
+.iconRestricted {
+	position: relative;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	background-color: #d50000;
+}
+
+.iconRestricted::after {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	content: '';
+	width: 65%;
+	height: 20%;
+	background-color: white;
+}
+
+.iconCancel {
+	position: relative;
+	width: 1rem;
+	height: 1rem;
+	cursor: pointer;
+}
+
+.iconWarn3 {
+	position: relative;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	background-color: #d50000;
+}
+
+.iconWarn3::after {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	content: "!";
+	color: white;
+	font-size: 150%;
+	font-weight: bolder;
+	font-family: 'Fredoka One', cursive;
+}
+
+.iconWarn2 {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: #ff6d00;
+}
+
+.iconWarn2::after {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	content: "!";
+	color: white;
+	font-size: 20px;
+	font-weight: bolder;
+	font-family: 'Fredoka One', cursive;
+}
+
+.iconWarn1 {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: #ffd600;
+}
+
+.iconWarn1::after {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	content: "!";
+	color: white;
+	font-size: 20px;
+	font-weight: bolder;
+	font-family: 'Fredoka One', cursive;
+}
+
+.iconMeeting {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: #00c652;
+	border-radius: 50%;
+}
+
+.iconMeeting::after {
+	position: absolute;
+	content: "";
+	width: 25%;
+	height: 25%;
+	background-color: white;
+	border: solid 1px #00c652;
+	outline: solid 1.5px white;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.iconUser {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: #2196f3;
+	border-radius: 50%;
+}
+
+.iconUser::before {
+	content: '';
+	position: absolute;
+	width: 60%;
+	height: 60%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #2196f3;
+	border-radius: 50%;
+	border: solid 2px white;
+	border-top: solid 2px #2196f3;
+	border-bottom: solid 2px #2196f3;
+}
+
+.iconUser::after {
+	content: '';
+	position: absolute;
+	width: 30%;
+	height: 30%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border-radius: 50%;
+}
+
+.loading {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -64px;
+	margin-top: -64px;
+	display: inline-block;
+	width: 128px;
+	height: 128px;
+	border-radius: 50%;
+	border-top: solid 20px var(--e-text);
+	border-left: solid 20px #ffffff00;
+	border-bottom: solid 20px var(--e-text);
+	border-right: solid 20px var(--e-text);
+	box-sizing: border-box;
+	animation: loadingAnim 1s ease-in-out infinite;
+	z-index: 2;
+}
+@keyframes loadingAnim {
+	from {transform: rotate(0);}
+	to {transform: rotate(360deg);}
 }

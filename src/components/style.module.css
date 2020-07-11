@@ -1,47 +1,77 @@
 .topbar {
 	position: fixed;
 	width: 100vw;
-	height: 3rem;
+	height: 2rem;
   	z-index: 2;
   	display: flex!important;
     box-shadow: 0px 5px 10px -5px var(--e-sec-darkest);
 	flex-flow: row nowrap!important;
-  	align-content: center!important;
-    align-items: center!important;
+	align-items: center!important;
+	justify-content: center!important;
+	align-content: center!important;
+	text-align: center;
+	pointer-events: none;
+	transition: height .2s ease;
 }
 .topbar h1 {
 	font-family: 'Fredoka One', cursive;
-	font-size: 24px;
-	margin-left: 1rem;
-}
-.sidebar {
-	position: fixed!important;
-	top: 3rem;
-	/*left: -256px;*/
-	padding: 0!important;
-	text-align: center;
-	height: 100vh;
-	border-top: solid 1px var(--e-sec-darkest);
-	border-right: solid 1px var(--e-sec-darkest);
-	width: 256px!important;
-	display: flex!important;
-	flex-flow: column nowrap;
-	z-index: 2;
-	transition: left .5s ease, background-color .5s, box-shadow .5s ease;
-}
-
-.sidebarButton {
 	font-size: 18px;
-	padding: .7rem 3rem;
-	border-bottom: solid 1px var(--e-sec-darkest);
-	cursor: pointer;
-	word-wrap: break-word;
+	margin-left: 1rem;
+	transition: font-size .2s ease;
+	pointer-events: auto;
+}
+.topbar:hover {
+	height: 3rem;
+}
+.topbar:hover > h1 {
+	font-size: 28px;
+    background: linear-gradient(42deg, #e0b1cb, #be95c4, #9f86c0, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    background-size: 1000% 1000%;
+
+    -webkit-animation: logoAnim 2s ease infinite;
+    -moz-animation: logoAnim 2s ease infinite;
+    animation: logoAnim 2s ease infinite;
+}
+@keyframes logoAnim {
+    0%{background-position:90% 0%}
+    50%{background-position:11% 100%}
+    100%{background-position:90% 0%}
+}
+.navbar {
+	position: fixed!important;
+	bottom: 0;
+	left: 0;
+	width: 100vw!important;
+	height: 4rem;
+	z-index: 2;
+	padding: .5rem!important;
+	display: flex!important;
+	flex-flow: row nowrap!important;
+	align-items: center!important;
+	align-content: center!important;
+	justify-content: center!important;
+}
+.navbarButton {
+	height: 100%;
+	width: 100%;
+	background-color: var(--e-pri);
 	display: flex;
-	flex-flow: row nowrap;
-	text-align: center;
+	align-items: center;
+	align-content: center;
 	justify-content: center;
-	align-items: center;
-	align-items: center;
+	border-radius: .5rem;
+	cursor: pointer;
+	transition: transform .2s ease, filter .2s ease;
+}
+.navbarButton:hover { 
+	filter: brightness(1.5);
+	transform: translateY(-2px)
+}
+.navbarButton:active {
+	filter: brightness(.75);
+	transform: translateY(2px)
 }
 
 .submenu {
@@ -90,4 +120,16 @@
 .profileSection > span {
 	font-weight: bold;
 	font-size: 16px;
+}
+
+.popup {
+	text-align: center;
+	border-radius: 10rem;
+	overflow: hidden;
+	border: solid 1px #00000050;
+}
+
+.popup .leaflet-popup-content-wrapper {
+	background-color: var(--e-bkg);
+	color: var(--e-text)
 }

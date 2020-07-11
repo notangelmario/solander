@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 :root {
-    --e-pri: #ffffff;
-    --e-sec: #f4f4f4;
-    --e-sec-darker: #d3d3d3;
-    --e-sec-darkest: #c0c0c0;
-    --e-text: #000000;
+    --e-pri: #22223b;
+    --e-sec: #c9ada7;
+    --e-sec-darker: #9a8c98;
+    --e-sec-darkest: #4a4e69;
+    --e-text: #ffffff;
 
     --e-accent: #1e88e5;
     --e-accent-darker: #005cb2;

@@ -19,7 +19,7 @@
 	transition: font-size .2s ease, background-color .5s ease, color 1s ease;;
 }
 .logo > span:hover {
-	font-size: 20px;
+	font-size: 22px;
 }
 
 .buttonMenu {

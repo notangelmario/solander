@@ -13,8 +13,10 @@ export default function NavbarButton(props) {
             function() {
                 if(document.body.className === 'dark'){
                     document.body.className = 'light'
+                    localStorage.setItem('theme', 'light')
                 } else {
                     document.body.className = 'dark'
+                    localStorage.setItem('theme', 'dark')
                 }
             }
         } className={styles.navbarButton}>{props.children}</div>

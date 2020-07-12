@@ -1,4 +1,4 @@
-# Solander
+
 
 ***Acesta este repo-ul oficial al aplicatiei Solander.***
 

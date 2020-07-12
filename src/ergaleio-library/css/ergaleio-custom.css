@@ -24,6 +24,8 @@
     --e-sec-darkest: #a4c3b2;
     --e-text: #000000;
 
+    --e-map-invert: invert(0);
+
     background-color: var(--e-sec);
 }
 
@@ -40,9 +42,12 @@
 .e-button {
     position: relative;
 }
-
+.leaflet-popup-content > span {
+    color: #000000!important;
+}
 .leaflet-container {
     filter: var(--e-map-invert);
-    background-color: var(--e-bkg);
-    transition: filter .5s ease;
+}
+.leaflet-marker-pane {
+    filter: var(--e-map-invert)
 }

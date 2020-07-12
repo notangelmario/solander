@@ -1,4 +1,11 @@
-
+<p align='center'>
+  <img alt='logo' src='public/assets/solander-wide.jpg' width='512'/>
+  <br/>
+  <br/>
+  <img alt="Dependencies" src="https://img.shields.io/david/clandestinz/solander">
+  <img alt="Discord" src="https://img.shields.io/discord/728228656333324289">
+  <img alt="Status" src="https://img.shields.io/website?down_message=offline&label=status&up_message=online&url=https%3A%2F%2Fsolander.web.app">
+</p>
 
 ***Acesta este repo-ul oficial al aplicatiei Solander.***
 

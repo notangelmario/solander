@@ -12,7 +12,7 @@
 	justify-content: center!important;
 	align-content: center!important;
 	text-align: center;
-	transition: height .2s ease, background-color .5s ease, color 1s ease;
+	transition: height .2s ease, background-color .2s ease, color .5s ease;
 }
 .navbar {
 	position: fixed!important;
@@ -41,7 +41,7 @@
 	justify-content: center;
 	border-radius: 1rem;
 	cursor: pointer;
-	transition: transform .2s ease, filter .2s ease, background-color .5s ease, color 1s ease;;
+	transition: transform .2s ease, filter .2s ease, background-color .2s ease, color .5s ease;
 	fill: var(--e-text);
 }
 .navbarButton p {
@@ -96,6 +96,30 @@
 .popup .leaflet-popup-content-wrapper {
 	background-color: var(--e-bkg);
 	color: var(--e-text)
+}
+
+.profile {
+	border: solid 1px var(--e-text);
+	padding: 1rem;
+	box-sizing: border-box;
+	border-radius: .5rem;
+}
+.profile > p {
+	opacity: .5;
+	margin: 0;
+	font-size: 12px;
+	margin-bottom: .5rem;
+}
+
+.profile > h4 {
+	margin: .5rem 0;
+}
+
+.profile > img {
+	width: 128px;
+	height: 128px;
+	border-radius: 50%;
+
 }
 
 .overlay {

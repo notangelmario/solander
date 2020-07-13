@@ -33,7 +33,7 @@ body.promptOpen {
 }
 
 * {
-    transition: background-color .5s ease, color 1s ease;
+    transition: background-color .2s ease, color .5s ease;
     transform: transale3d(0, 0, 0);
 }
 body {
@@ -54,9 +54,11 @@ body {
 }
 .leaflet-container {
     filter: var(--e-map-invert);
+    transition: filter .2s ease;
 }
 .leaflet-marker-pane {
-    filter: var(--e-map-invert)
+    filter: var(--e-map-invert);
+    transition: filter .2s ease;
 }
 
 #loginOverlay.show {

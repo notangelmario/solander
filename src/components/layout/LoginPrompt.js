@@ -31,33 +31,43 @@ export default class LoginPrompt extends React.Component {
                         <div className='e-card invert' style={{maxWidth: '300px', zIndex: '15'}}>
                             {this.props.auth && 
                             (
-                                <Button clickEvent={()=>firebase.auth().signOut()}>Sign Out</Button>
+                                <div className={styles.profile}>
+                                    <p>Current user:</p>
+                                    <img src={this.props.auth.photoURL} referrerPolicy='no-referrer' alt=''></img>
+                                    <h4>{this.props.auth.displayName}</h4>
+                                    <Button classes='red'  clickEvent={()=>firebase.auth().signOut()}>Sign Out</Button>
+                                </div>
                             )
                             }
-
-                            <Button clickEvent={()=>{
-                                var googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-                                
-                                firebase.auth().signInWithPopup(googleAuthProvider)
-                                    .catch(err => {
-                                        console.log(err)
-                                        /*if (err.code == 'auth/network-request-failed') {
-                                            addNotif('icon-warn-3', 'Cererea a durat prea mult. Verifica internetul')
-                                        } else if (err.code == 'auth/too-many-requests') {
-                                            addNotif('icon-warn-3', 'Prea multe cereri au fost trimise. Incearca mai tarziu')
-                                        } else if (err.code == 'auth/user-disabled') {
-                                            addNotif('icon-warn-3', 'Acest cont a fost dezactivat. Acest incident va fii raportat. Daca ai intrebari, contacteaza-ne')
-                                        } else if (err.code == 'auth/user-token-expired' || err.code == 'auth/invalid-user-token') {
-                                            addNotif('icon-warn-3', 'Autentificarea a esuat. Mai incearca o data')
-                                        } else if (err.code == 'auth/unauthorized-domain') {
-                                            addNotif('icon-warn-3', 'Acest domeniu este neautorizat pentru a accesa Solander')
-                                        } else {
-                                            addNotif('icon-warn-3', err.message)
-                                        }*/
-                                    })
-                            }} classes='wide'><AuthIcon icon='google'></AuthIcon>Sign in with Google</Button>
-                            <br/>
-                            <Button classes='wide'><AuthIcon icon='facebook'></AuthIcon>Sign in with Facebook</Button>
+                            {!this.props.auth &&
+                            (
+                                <>
+                                    <Button clickEvent={()=>{
+                                    var googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+                                    
+                                    firebase.auth().signInWithPopup(googleAuthProvider)
+                                        .catch(err => {
+                                            console.log(err)
+                                            /*if (err.code == 'auth/network-request-failed') {
+                                                addNotif('icon-warn-3', 'Cererea a durat prea mult. Verifica internetul')
+                                            } else if (err.code == 'auth/too-many-requests') {
+                                                addNotif('icon-warn-3', 'Prea multe cereri au fost trimise. Incearca mai tarziu')
+                                            } else if (err.code == 'auth/user-disabled') {
+                                                addNotif('icon-warn-3', 'Acest cont a fost dezactivat. Acest incident va fii raportat. Daca ai intrebari, contacteaza-ne')
+                                            } else if (err.code == 'auth/user-token-expired' || err.code == 'auth/invalid-user-token') {
+                                                addNotif('icon-warn-3', 'Autentificarea a esuat. Mai incearca o data')
+                                            } else if (err.code == 'auth/unauthorized-domain') {
+                                                addNotif('icon-warn-3', 'Acest domeniu este neautorizat pentru a accesa Solander')
+                                            } else {
+                                                addNotif('icon-warn-3', err.message)
+                                            }*/
+                                        })
+                                    }} classes='wide'><AuthIcon icon='google'></AuthIcon>Sign in with Google</Button>
+                                    <br/>
+                                    <Button classes='wide'><AuthIcon icon='facebook'></AuthIcon>Sign in with Facebook</Button>
+                                </>
+                            )
+                            }
                         </div>
                     </div>
                 </div>

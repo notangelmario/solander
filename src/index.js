@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import firebase from 'firebase/app'
+import 'firebase/auth'
+
 import './ergaleio-library/css/ergaleio-main.css'
 import './ergaleio-library/css/ergaleio-sec.css'
 import './ergaleio-library/css/ergaleio-custom.css'

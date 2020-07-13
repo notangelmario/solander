@@ -20,7 +20,11 @@ export default function NavbarButton(props) {
                 }
             }
         } className={styles.navbarButton}>{props.children}</div>
-    } else {
+    }
+    else if (props.loginPrompt){
+        return <div onClick={() => props.loginPrompt(true)} className={styles.navbarButton}>{props.children}</div>   
+    }
+    else {
         return <div className={styles.navbarButton}>{props.children}</div>
     }
 }

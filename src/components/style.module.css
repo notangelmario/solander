@@ -12,7 +12,7 @@
 	justify-content: center!important;
 	align-content: center!important;
 	text-align: center;
-	transition: height .2s ease;
+	transition: height .2s ease, background-color .5s ease, color 1s ease;
 }
 .navbar {
 	position: fixed!important;
@@ -39,7 +39,7 @@
 	padding: .5rem!important;
 	align-content: center;
 	justify-content: center;
-	border-radius: .5rem;
+	border-radius: 1rem;
 	cursor: pointer;
 	transition: transform .2s ease, filter .2s ease, background-color .5s ease, color 1s ease;;
 	fill: var(--e-text);
@@ -51,14 +51,24 @@
 	margin: 0;
 	padding: 0;
 }
+.navbarButton img,
 .navbarButton svg {
+	width: 2em;
+	height: 2em;
 	transform: translateY(25%);
 	transition: transform .2s ease;
+	border-radius: 50%;
 }
+.navbarButton img {
+	border: solid 2px var(--e-text);
+}
+
+
 @media (hover: hover) {
 	.navbarButton:hover {
 		filter: brightness(.75);
 	}
+	.navbarButton:hover img,
 	.navbarButton:hover svg {
 		transform: translateY(0);
 	}
@@ -76,55 +86,6 @@
 	opacity: 1;
 }
 
-
-.submenu {
-	width: 100%;
-	padding: 1rem;
-	border-bottom: solid 1px var(--e-sec-darkest);
-	box-shadow: inset 5px 5px 10px -5px #00000050;
-	flex-flow: column nowrap;
-	align-items: center;
-	justify-content: center;
-	align-content: center;
-	box-sizing: border-box;
-}
-
-.submenu p {
-	font-size: 16px;
-}
-
-.submenu h3 {
-	font-family: 'Fredoka One', cursive;
-}
-.submenuAnim {
-	transition: height .2s ease;
-}
-
-.profileSection {
-	padding: 0 5rem;
-	border-bottom: solid 1px var(--e-sec-darkest);
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	padding: .5rem 0;
-}
-
-.profileSection > div {
-	width: 5rem;
-	height: 5rem;
-	border-radius: 50%;
-	margin-bottom: .5rem;
-	background-position: center;
-	background-size: cover;
-}
-
-.profileSection > span {
-	font-weight: bold;
-	font-size: 16px;
-}
-
 .popup {
 	text-align: center;
 	border-radius: 10rem;
@@ -135,4 +96,26 @@
 .popup .leaflet-popup-content-wrapper {
 	background-color: var(--e-bkg);
 	color: var(--e-text)
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+	background-color: #24242499;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .2s ease;
+}
+
+.loginPrompt {
+	position: fixed!important;
+	bottom: -50%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100vw;
+	transition: bottom .2s ease;
 }

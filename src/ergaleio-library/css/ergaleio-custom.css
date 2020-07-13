@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 :root {    
-    --e-accent: #1e88e5;
-    --e-accent-darker: #005cb2;
-    --e-accent-darkest: #01488b;
-    --e-accent-text: #ffffff; 
+    --e-accent: #B98CDA;
+    --e-accent-darker: #8661a0;
+    --e-accent-darkest: #724b8f;
+    --e-accent-text: #000000; 
 }
 
-.dark {
-    --e-pri: #151925;
-    --e-sec: #293241;
-    --e-sec-darker: #1d2431;
-    --e-sec-darkest: #11161f;
+body.dark {
+    --e-pri: #21252B;
+    --e-sec: #333842;
+    --e-sec-darker: #282C34;
+    --e-sec-darkest: #1b1e24;
     --e-text: #ffffff;
 
     --e-map-invert: invert(1);
 
-    background-color: var(--e-sec-darkest);
+    background-color: var(--e-sec-darker);
 }
-.light {
+body.light {
     --e-pri: #f6fff8;
     --e-sec: #eaf4f4;
     --e-sec-darker: #cce3de;
@@ -28,9 +28,16 @@
 
     background-color: var(--e-sec);
 }
+body.promptOpen {
+    overflow-y: hidden;
+}
 
 * {
     transition: background-color .5s ease, color 1s ease;
+    transform: transale3d(0, 0, 0);
+}
+body {
+    overflow-x: hidden;
 }
 
 .e-button.wide {
@@ -50,4 +57,12 @@
 }
 .leaflet-marker-pane {
     filter: var(--e-map-invert)
+}
+
+#loginOverlay.show {
+	opacity: 1;
+    pointer-events: auto;
+}
+#loginOverlay.show > div {
+    bottom: 0;
 }

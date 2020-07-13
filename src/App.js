@@ -4,8 +4,15 @@ import Topbar from './components/layout/Topbar'
 import Navbar from './components/layout/Navbar'
 import MainMap from './components/pages/MainMap'
 import InfoPage from './components/pages/InfoPage'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 
 export default class App extends React.Component {
+
+  state = {
+    auth: undefined
+  }
+
   componentDidMount() {
     if (!localStorage.getItem('theme')) {
       localStorage.setItem('theme', 'dark')
@@ -17,6 +24,17 @@ export default class App extends React.Component {
     else {
       document.body.className = 'light'
     }
+    
+    firebase.auth().onAuthStateChanged((user)=>{
+      if(user) {
+        console.log(user)
+        this.setState({auth: user})
+      } else {
+        console.log('Notauth')
+        this.setState({auth: undefined})
+      }
+    })
+
   }
 
   render(){
@@ -24,7 +42,7 @@ export default class App extends React.Component {
       <BrowserRouter>
         <div>
           <Topbar></Topbar>
-          <Navbar></Navbar>
+          <Navbar auth={this.state.auth}></Navbar>
           <Route
             exact path='/'
             component={MainMap}

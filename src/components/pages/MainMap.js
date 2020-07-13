@@ -1,6 +1,7 @@
 import React from 'react'
 import { Map, Marker, Popup, Circle } from 'react-leaflet'
-import MapBoxGLLayer from '../layout/MapBoxGLLayer'
+import MapBoxGLLayer from '../engine/MapBoxGLLayer'
+import LocateControl from '../engine/LocateControl'
 import L from 'leaflet'
 import styles from '../style.module.css'
 import icons from '../icons.module.css'
@@ -76,6 +77,15 @@ export default class MainMap extends React.Component {
                         }
                     </>
                     )}
+                    <LocateControl options = {
+                    {
+                        position: 'topright',
+                        showPopup: false,
+                        flyTo: true,
+                        onLocationError: ()=>alert('Accesul la locatie a fost refuzat. Pentru a iti arata locatia, activeaza serviciile'),
+                        onLocationOutsideMapBounds: ()=>alert('Solander este disponibil doar in Ciorogarla momentan. Poti continua sa vezi harta, totusi'),
+                    }
+                    }/>
                 </Map>
             )
         } else {

@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.16.0",
     "leaflet": "^1.6.0",
+    "leaflet.locatecontrol": "^0.72.0",
     "mapbox-gl": "^1.11.1",
     "mapbox-gl-leaflet": "0.0.12",
     "react": "^16.13.1",

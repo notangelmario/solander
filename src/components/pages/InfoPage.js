@@ -18,9 +18,11 @@ export default function InfoPage() {
 				    <li>Copierea și/sau lansarea sub alt nume</li>
 				    <li>Exploatarea vulnerabilitaților</li>
 				</ul>
-		    	<li>Încurajam cu drag feedback-ul. Dacă gasești probleme în aplicație sau dacă ai o sugestie, poți să ne trimiți un mesaj pe <a href="https://facebook.com/solander.map">Facebook</a>.</li>
+		    	<li>Încurajam cu drag feedback-ul. Dacă gasești probleme în aplicație sau dacă ai o sugestie, poți să ne trimiți un mesaj pe <a href="https://facebook.com/solander.map">Facebook</a> sau <a href='https://github.com/clandestinz/solander'>Github</a>.</li>
 	    		<li>Dacă vrei să ajuți la dezvoltarea proiectului Solander, intră pe pagina de <a href='https://github.com/clandestinz/solander'>Github</a> pentru mai multe detalii.</li>
 			</ol>
+			<div className='e-watermark'></div>
+			<br/>
     </div>
     )
 }

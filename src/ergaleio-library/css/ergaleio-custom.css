@@ -57,6 +57,7 @@ body {
 
 .leaflet-container .mapboxgl-map {
     filter: var(--e-map-invert);
+	transition: filter .2s ease;
 }
 
 .leaflet-container :not(.mapboxgl-map) {

@@ -11,11 +11,17 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@master
     - name: Setup NodeJS
-      uses: actions/setup-node@v2.1.0
+      uses: actions/setup-node@master
     - name: Install dependencies
       run: npm install
     - name: Build production
       run: npm run build
+    - name: Archive Production Artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: build
+        path: build
+  
   deploy:
     name: Deploy
     needs: build
@@ -23,8 +29,15 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: build
+          path: build
       - name: Move build to Firebase Hosting
-        run: cp -r build/. firebase/public/
+        run: |
+          mkdir firebase/public
+          cp -r build/. firebase/public/
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:

@@ -1,0 +1,16 @@
+name: Check Pull Request
+on:
+  pull_request:
+    branches: master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.1
+      - name: Setup NodeJS
+        uses: actions/setup-node@v2.1.0
+      - name: Install dependencies
+        run: npm install
+      - name : Build production
+        run: npm run build

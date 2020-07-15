@@ -38,6 +38,7 @@ jobs:
         run: |
           mkdir firebase/public
           cp -r build/. firebase/public/
+          cd firebase
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:

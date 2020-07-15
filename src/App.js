@@ -7,6 +7,8 @@ import InfoPage from './components/pages/InfoPage'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
+
+//Test
 export default class App extends React.Component {
 
   state = {

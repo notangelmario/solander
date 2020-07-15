@@ -18,10 +18,10 @@ body.dark {
 }
 
 body.light {
-    --e-pri: #f6fff8;
-    --e-sec: #eaf4f4;
-    --e-sec-darker: #cce3de;
-    --e-sec-darkest: #a4c3b2;
+    --e-pri: #f8f6ff;
+    --e-sec: #edeaf4;
+    --e-sec-darker: #d1cce3;
+    --e-sec-darkest: #b2a4c3;
     --e-text: #000000;
     --e-map-invert: invert(0);
     background-color: var(--e-sec);

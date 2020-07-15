@@ -10,8 +10,8 @@ export default function InfoPage() {
 	    	<p>Aceștia sunt termenii de utilizare și confidențialitate, mici notițe despre aplicație și planuri:</p>
 		    <ol>
 		    	<li>Solander colecționeaza date anonime pentru a menține control asupra folosirii aplicației. Această baza de date este reîmprospătată săptamânal.</li>
-		    	<li>Folosim cookie-uri, totuși acestea sunt pentru a-ți personaliza experiența.</li>
-		    	<li>Este interzis</li>
+		    	<li>Folosim cookie-uri, totuși acestea sunt pentru a-ți personaliza experiența.<span aria-label='' role='img'>⭐</span></li>
+		    	<li>Este interzis <span aria-label='' role='img'>🙅</span></li>
 				<ul>
 				    <li>Folosirea API-urilor fără permisiune</li>
 				    <li>Abuzarea serviciilor oferite</li>

@@ -19,8 +19,8 @@ jobs:
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           clean: true
-          src_path: /build/
-          dst_path: /public/
+          src_path: build/
+          dst_path: public/
           dst_owner: clandestinz
           dst_repo_name: solander-backend
           username: clandestinz

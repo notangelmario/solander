@@ -7,6 +7,7 @@ import InfoPage from './components/pages/InfoPage'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
+//Test for Github Actions
 export default class App extends React.Component {
 
   state = {
@@ -24,7 +25,7 @@ export default class App extends React.Component {
     else {
       document.body.className = 'light'
     }
-    
+
     firebase.auth().onAuthStateChanged((user)=>{
       if(user) {
         console.log(user)

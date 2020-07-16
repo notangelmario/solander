@@ -1,5 +1,5 @@
 import React from 'react'
-import './infoPage.css'
+import './page.css'
 
 export default function InfoPage() {
     return (
@@ -23,6 +23,6 @@ export default function InfoPage() {
 			</ol>
 			<div className='e-watermark'></div>
 			<br/>
-    </div>
+   		</div>
     )
 }

@@ -2,8 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
 import Topbar from './components/layout/Topbar'
 import Navbar from './components/layout/Navbar'
+import Notif from './components/layout/Notif'
 import MainMap from './components/pages/MainMap'
 import InfoPage from './components/pages/InfoPage'
+import AddLocation from './components/pages/AddLocation'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
@@ -27,10 +29,8 @@ export default class App extends React.Component {
     
     firebase.auth().onAuthStateChanged((user)=>{
       if(user) {
-        console.log(user)
         this.setState({auth: user})
       } else {
-        console.log('Notauth')
         this.setState({auth: undefined})
       }
     })
@@ -41,8 +41,8 @@ export default class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <Topbar></Topbar>
-          <Navbar auth={this.state.auth}></Navbar>
+          <Topbar/>
+          <Navbar auth={this.state.auth}/>
           <Route
             exact path='/'
             component={MainMap}
@@ -51,6 +51,11 @@ export default class App extends React.Component {
             exact path='/info'
             component={InfoPage}
           ></Route>
+          <Route
+            exact path='/add'
+            render={() => <AddLocation auth={this.state.auth}/>}
+          ></Route>
+          <Notif/>
         </div>
       </BrowserRouter>
     );

@@ -29,11 +29,11 @@ export default class MainMap extends React.Component {
         firebase.firestore().collection('markers').get().then(async (snap) => {
             snap.forEach((marker) => {
                 this.state.markers.push({
-                    position: marker.data()['position'],
-                    icon: this.state.icons[marker.data()['icon']][0],
-                    color: this.state.icons[marker.data()['icon']][1],
-                    popupText: marker.data()['popupText'],
-                    radius: marker.data()['radius']
+                    position: marker.data().position,
+                    icon: this.state.icons[marker.data().icon][0],
+                    color: this.state.icons[marker.data().icon][1],
+                    popupText: marker.data().popupText,
+                    radius: marker.data().radius
                 })
             })
         }).then(() => this.setState({loading: false}))
@@ -61,25 +61,32 @@ export default class MainMap extends React.Component {
                     zoom={15}>
 
                     <MapBoxGLLayer key='GLLayer'/>
-                    {this.state.markers.map((content, idx) =>
-                        <>
-                            <Marker key={`marker-${idx}`}
-                                    icon={content['icon']}
-                                    position={content['position']}>
-                                <Popup key={`popup-${idx}`} closeButton={false} className={styles.popup}>
-                                    <span>{content['popupText']}</span>
-                                </Popup>
-
-                            </Marker>
-                            {content['radius'] &&
-                            <Circle key={`circle-${idx}`}
-                                    center={content['position']}
-                                    radius={content['radius']}
-                                    color={content['color']}>
-                            </Circle>
-                            }
-                        </>
-                    )}
+                    {
+                        this.state.markers.map((content, idx) => (
+                            <React.Fragment key={`MarkerContain-${idx}`}>
+                                <Marker
+                                    key={`marker-${idx}`}
+                                    icon={content.icon}
+                                    position={content.position}
+                                >
+                                    <Popup
+                                    key={`popup-${idx}`}
+                                    closeButton={false}
+                                    className={styles.popup}
+                                    >
+                                    <span>{content.popupText}</span>
+                                    </Popup>
+                                </Marker>
+                                {content["radius"] && (
+                                    <Circle
+                                    key={`circle-${idx}`}
+                                    center={content.position}
+                                    radius={content.radius}
+                                    color={content.color}
+                                    />
+                                )}
+                            </React.Fragment>
+                        ))}
                     <LocateControl key='LocateControl' options = {
                     {
                         position: 'topright',

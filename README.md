@@ -6,7 +6,7 @@
   <img alt="Discord" src="https://img.shields.io/discord/728228656333324289?logo=discord">
   <img alt="Status" src="https://img.shields.io/website?down_message=offline&label=status&up_message=online&url=https%3A%2F%2Fsolander.web.app">
   <img alt="Stable Version" src="https://img.shields.io/badge/stable_version-0.5-red">
-  <img alt="Dev Version" src="https://img.shields.io/badge/dev_version-0.5-orange">
+  <img alt="Dev Version" src="https://img.shields.io/badge/dev_version-0.6-orange">
 </p>
 
 ***Acesta este repo-ul oficial al aplicatiei Solander.***

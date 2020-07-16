@@ -47,7 +47,6 @@ export default class MainMap extends React.Component {
         if(!this.state.loading) {
             return(
                <Map
-                    key="MainMap"
                     style={mapStyle}
                     center={[this.state.lat, this.state.lng]}
                     minZoom={14}
@@ -60,7 +59,7 @@ export default class MainMap extends React.Component {
                     )}
                     zoom={15}>
 
-                    <MapBoxGLLayer key='GLLayer'/>
+                    <MapBoxGLLayer/>
                     {
                         this.state.markers.map((content, idx) => (
                             <React.Fragment key={`MarkerContain-${idx}`}>
@@ -87,7 +86,7 @@ export default class MainMap extends React.Component {
                                 )}
                             </React.Fragment>
                         ))}
-                    <LocateControl key='LocateControl' options = {
+                    <LocateControl options = {
                     {
                         position: 'topright',
                         showPopup: false,

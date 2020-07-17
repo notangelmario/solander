@@ -3,8 +3,8 @@ import { Map, Marker, Popup, Circle } from 'react-leaflet'
 import MapBoxGLLayer from '../engine/MapBoxGLLayer'
 import LocateControl from '../engine/LocateControl'
 import L from 'leaflet'
-import styles from '../style.module.css'
 import icons from '../icons.module.css'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
@@ -71,7 +71,7 @@ export default class MainMap extends React.Component {
                                     <Popup
                                     key={`popup-${idx}`}
                                     closeButton={false}
-                                    className={styles.popup}
+                                    className={icons.popup}
                                     >
                                     <span>{content.popupText}</span>
                                     </Popup>
@@ -99,16 +99,21 @@ export default class MainMap extends React.Component {
             )
         } else {
             return(
-                <div className={icons.loading}></div>
+                <CircularProgress thickness={5} size={128} style={loadingStyle}/>
             )
         }
     }
 }
 
-const mapStyle = {
-    top: 0,
-    left: 0,
+const loadingStyle = {
     position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginTop: '-64px',
+    marginLeft: '-64px',
+}
+
+const mapStyle = {
     height: '100vh',
     width: '100%',
     zIndex: 1,

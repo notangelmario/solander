@@ -245,31 +245,13 @@
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
-.loading {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -64px;
-    margin-top: -64px;
-    display: inline-block;
-    width: 128px;
-    height: 128px;
-    border-radius: 50%;
-    border-top: solid 20px var(--e-text);
-    border-left: solid 20px #ffffff00;
-    border-bottom: solid 20px var(--e-text);
-    border-right: solid 20px var(--e-text);
-    box-sizing: border-box;
-    animation: loadingAnim 1s ease-in-out infinite;
-    z-index: 2;
+.popup {
+    border-radius: 10rem;
+    overflow: hidden;
+    border: solid 1px #00000050;
 }
 
-@keyframes loadingAnim {
-    from {
-        transform: rotate(0);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+.popup .leaflet-popup-content-wrapper {
+    background-color: var(--e-bkg);
+    color: var(--e-text);
 }

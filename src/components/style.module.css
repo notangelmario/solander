@@ -87,17 +87,6 @@
 	transform: translateY(-36px);
 	opacity: 1;
 }
-
-.popup {
-	border-radius: 10rem;
-	overflow: hidden;
-	border: solid 1px #00000050;
-}
-
-.popup .leaflet-popup-content-wrapper {
-	background-color: var(--e-bkg);
-	color: var(--e-text);
-}
 .profile {
 	border: solid 1px var(--e-text);
 	padding: 1rem;

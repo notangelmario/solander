@@ -1,44 +1,59 @@
 import React from 'react'
-import NavbarButton from './NavbarButton'
-import LoginPrompt from './LoginPrompt'
-import styles from '../style.module.css'
-import { ReactComponent as Home } from '../assets/icons/home.svg'
-import { ReactComponent as Info } from '../assets/icons/info.svg'
-import { ReactComponent as Account  } from '../assets/icons/account.svg'
-import { ReactComponent as Theme } from '../assets/icons/theme.svg'
-import { ReactComponent as AddLocation } from '../assets/icons/addLocation.svg'
+import BottomNavigation from '@material-ui/core/BottomNavigation'
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
+import AppBar from '@material-ui/core/AppBar'
+import { useHistory } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core'
+import ExploreIcon from '@material-ui/icons/Explore'
+import InfoIcon from '@material-ui/icons/Info'
+import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
+import Brightness4RoundedIcon from '@material-ui/icons/Brightness4Rounded';
+
+const useStyles = makeStyles((theme)=>({
+	root: {
+		top: 'auto',
+		bottom: 0,
+        borderRadius: '1rem 1rem 0 0'
+	},
+	nav: {
+		backgroundColor: 'transparent'
+	}
+}))
 
 export default function Navbar(props) {
-	const [loginPrompt, setLoginPrompt] = React.useState(false)
+	const style = useStyles()
+	const pathname = window.location.pathname
+	const [currentPage, setCurrentPage] = React.useState(pathname)
+	const history = useHistory()
 
 	return(
-    	<div className={[styles.navbar, 'e-section round-up'].join(' ')}>
-			<NavbarButton type='home'>
-				<Home></Home>
-				<p>Hartă</p>
-			</NavbarButton>
-			<NavbarButton type='info'>
-				<Info></Info>
-				<p>Info</p>
-			</NavbarButton>
-			<NavbarButton type='account' loginPrompt={setLoginPrompt}>
-				{props.auth !== undefined ? (
-					<img src={props.auth.photoURL} referrerpolicy="no-referrer" alt=''/>
-				) : (
-					<Account></Account>
-				 	)
+		<AppBar color='default' position='fixed' className={style.root}>
+			<BottomNavigation showLabels className={style.nav} value={currentPage}
+				onChange={(event, newValue) => {
+					if(newValue !== 'noSwitch'){
+						setCurrentPage(newValue)
+					}
 				}
-				<p>Cont</p>
-			</NavbarButton>
-			<NavbarButton type='add'>
-				<AddLocation></AddLocation>
-				<p>Adaugă</p>
-			</NavbarButton>
-			<NavbarButton type='theme'>
-				<Theme></Theme>
-				<p>Temă</p>
-			</NavbarButton>
-			<LoginPrompt show={loginPrompt} setShow={setLoginPrompt} auth={props.auth}></LoginPrompt>
-		</div>
+				}>
+				<BottomNavigationAction
+					onClick={()=>history.push('/')}
+					value='/'
+					label='Hartă'
+					icon={<ExploreIcon/>}/>
+				<BottomNavigationAction
+					onClick={()=>history.push('/info')}
+					value='/info'
+					label='Info' 
+					icon={<InfoIcon/>}/>
+				<BottomNavigationAction
+					value='noSwitch'
+					label='Cont' 
+					icon={<AccountCircleRoundedIcon/>}/>
+				<BottomNavigationAction
+					value='noSwitch'
+					label='Temă' 
+					icon={<Brightness4RoundedIcon/>}/>		
+			</BottomNavigation>
+		</AppBar>
 	)
 }

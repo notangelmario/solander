@@ -1,63 +1,45 @@
 import React from 'react';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import { BrowserRouter, Route } from 'react-router-dom'
-import Topbar from './components/layout/Topbar'
+import TopBar from './components/layout/Topbar'
 import Navbar from './components/layout/Navbar'
-import Notif from './components/layout/Notif'
-import MainMap from './components/pages/MainMap'
 import InfoPage from './components/pages/InfoPage'
-import AddLocation from './components/pages/AddLocation'
+import MainMap from './components/pages/MainMap'
+// import Notif from './components/layout/Notif'
+// import AddLocation from './components/pages/AddLocation'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
-export default class App extends React.Component {
+export default function App() {
+  const [auth, setAuth] = React.useState(undefined)
 
-  state = {
-    auth: undefined
-  }
-
-  componentDidMount() {
-    if (!localStorage.getItem('theme')) {
-      localStorage.setItem('theme', 'dark')
-      document.body.className = 'dark'
-    }
-    else if (localStorage.getItem('theme') === 'dark') {
-      document.body.className = 'dark'
-    }
-    else {
-      document.body.className = 'light'
-    }
-    
-    firebase.auth().onAuthStateChanged((user)=>{
-      if(user) {
-        this.setState({auth: user})
-      } else {
-        this.setState({auth: undefined})
+  const theme = createMuiTheme({
+      palette: {
+        primary: {
+          main: '#5c6bc0',
+          light: '#8e99f3',
+          dark: '#26418f',
+        },
+        type: 'dark'
       }
     })
 
+  React.useEffect(()=>{
+    firebase.auth().onAuthStateChanged((user)=>{
+      user ? setAuth(user) : setAuth(undefined)
+    })
   }
-
-  render(){
+  )
     return (
       <BrowserRouter>
-        <div>
-          <Topbar/>
-          <Navbar auth={this.state.auth}/>
-          <Route
-            exact path='/'
-            component={MainMap}
-          ></Route>
-          <Route
-            exact path='/info'
-            component={InfoPage}
-          ></Route>
-          <Route
-            exact path='/add'
-            render={() => <AddLocation auth={this.state.auth}/>}
-          ></Route>
-          <Notif/>
-        </div>
+        <ThemeProvider theme={theme}>
+          <CssBaseline/>
+          <TopBar/>
+          <Route path='/info' component={InfoPage}/>
+          <Route exact path='/' component={MainMap}/>
+          <Navbar/>
+        </ThemeProvider>
       </BrowserRouter>
-    );
-  }
+    )
 }

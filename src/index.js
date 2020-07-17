@@ -4,9 +4,7 @@ import App from './App';
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
-import './ergaleio-library/css/ergaleio-main.css'
-import './ergaleio-library/css/ergaleio-sec.css'
-import './ergaleio-library/css/ergaleio-custom.css'
+import './main.css'
 
 const firebaseConfig = {
   apiKey: "AIzaSyCEMJu1b9YT6NLGA61oXcP5bAlZ2BcJ1fM",

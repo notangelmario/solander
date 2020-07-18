@@ -13,6 +13,7 @@ import 'firebase/auth'
 
 export default function App() {
   const [auth, setAuth] = React.useState(undefined)
+  const [appTheme, setAppTheme] = React.useState('dark')
 
   const theme = createMuiTheme({
       palette: {
@@ -21,7 +22,7 @@ export default function App() {
           light: '#8e99f3',
           dark: '#26418f',
         },
-        type: 'dark'
+        type: appTheme
       }
     })
 
@@ -29,6 +30,8 @@ export default function App() {
     firebase.auth().onAuthStateChanged((user)=>{
       user ? setAuth(user) : setAuth(undefined)
     })
+
+    document.body.className = appTheme === 'dark' ? 'dark' : ''
   }
   )
     return (
@@ -38,7 +41,7 @@ export default function App() {
           <TopBar/>
           <Route path='/info' component={InfoPage}/>
           <Route exact path='/' component={MainMap}/>
-          <Navbar/>
+          <Navbar setAppTheme={setAppTheme} auth={auth}/>
         </ThemeProvider>
       </BrowserRouter>
     )

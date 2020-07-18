@@ -78,7 +78,7 @@ export default function InfoPage() {
 					</ListItem>
 					<ListItem>
 						<ListItemText>
-							Dacă vrei să ajuți la dezvoltarea proiectului Solander, intră pe pagina de <Link href="https://github.com/clandestinz/solander">Github</Link> pentru mai multe detalii.
+							- Dacă vrei să ajuți la dezvoltarea proiectului Solander, intră pe pagina de <Link href="https://github.com/clandestinz/solander">Github</Link> pentru mai multe detalii.
 						</ListItemText>
 					</ListItem>
 				</List>

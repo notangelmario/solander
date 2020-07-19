@@ -6,21 +6,25 @@ import TopBar from './components/layout/Topbar'
 import Navbar from './components/layout/Navbar'
 import InfoPage from './components/pages/InfoPage'
 import MainMap from './components/pages/MainMap'
-// import Notif from './components/layout/Notif'
 // import AddLocation from './components/pages/AddLocation'
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+
+var userTheme = window.localStorage.getItem('theme')
 
 export default function App() {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
   const [auth, setAuth] = React.useState(undefined)
-  const [appTheme, setAppTheme] = React.useState('dark')
+  const [appTheme, setAppTheme] = React.useState(userTheme ? userTheme : prefersDarkMode ? 'dark' : 'light')
 
   const theme = createMuiTheme({
       palette: {
         primary: {
-          main: '#5c6bc0',
-          light: '#8e99f3',
-          dark: '#26418f',
+          main: '#985277',
+          light: '#ce6a85',
+          dark: '#5c374c',
         },
         type: appTheme
       }
@@ -31,7 +35,7 @@ export default function App() {
       user ? setAuth(user) : setAuth(undefined)
     })
 
-    document.body.className = appTheme === 'dark' ? 'dark' : ''
+    document.body.className = appTheme === 'dark' ? 'dark' : 'light'
   }
   )
     return (

@@ -31,17 +31,21 @@ const useStyles = makeStyles((theme)=>({
 	root: {
 		top: 'auto',
 		bottom: 0,
-        borderRadius: '1rem 1rem 0 0'
+		borderRadius: '1rem 1rem 0 0',
+		overflow: 'hidden',
 	},
 	nav: {
-		backgroundColor: 'transparent'
+		backgroundColor: 'transparent',
 	},
 	avatar: {
 		width: '24px',
-		height: '24px'
+		height: '24px',
 	},
 	drawer: {
-        borderRadius: '1rem 1rem 0 0'
+		borderRadius: '1rem 1rem 0 0',
+		maxWidth: '756px',
+		marginLeft: 'auto',
+		marginRight: 'auto',
 	}
 }))
 
@@ -88,8 +92,10 @@ export default function Navbar(props) {
 			<SwipeableDrawer
 				open={loginMenu}
 				onClose={()=>setLoginMenu(false)}
+				onOpen={()=>setLoginMenu(true)}
 				classes={{paper: style.drawer}}
 				anchor='bottom'
+				disableSwipeToOpen={true}
 				>
 				<List> 
 					<ListItem>
@@ -149,16 +155,19 @@ export default function Navbar(props) {
 			<SwipeableDrawer
 				classes={{paper: style.drawer}}
 				onClose={()=>setThemeMenu(false)}
+				onOpen={()=>setThemeMenu(true)}
 				open={themeMenu}
 				anchor='bottom'
+				disableSwipeToOpen={true}
 				>
 				<List>
 					<ListItem>
-						<ListItemText secondary='Tema'/>
+						<ListItemText secondary='Temă'/>
 					</ListItem>
 					<Divider/>
 					<ListItem button onClick={()=>{
 						props.setAppTheme('light')
+						window.localStorage.setItem('theme', 'light')
 						setThemeMenu(false)
 					}}>
 						<ListItemIcon>
@@ -168,6 +177,7 @@ export default function Navbar(props) {
 					</ListItem>
 					<ListItem button onClick={()=>{
 						props.setAppTheme('dark')
+						window.localStorage.setItem('theme', 'dark')
 						setThemeMenu(false)
 					}}>
 						<ListItemIcon>
@@ -177,6 +187,7 @@ export default function Navbar(props) {
 					</ListItem>
 					<ListItem button onClick={()=>{
 						props.setAppTheme(prefersDarkMode ? 'dark' : 'light')
+						window.localStorage.setItem('theme', prefersDarkMode ? 'dark' : 'light')
 						setThemeMenu(false)
 					}}>
 						<ListItemIcon>

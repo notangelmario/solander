@@ -4,6 +4,7 @@ import MapBoxGLLayer from '../engine/MapBoxGLLayer'
 import LocateControl from '../engine/LocateControl'
 import L from 'leaflet'
 import icons from '../icons.module.css'
+import Grow from '@material-ui/core/Grow'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
@@ -46,7 +47,8 @@ export default class MainMap extends React.Component {
     render() {
         if(!this.state.loading) {
             return(
-               <Map
+                <Grow in={!this.state.loading}>
+                <Map
                     style={mapStyle}
                     center={[this.state.lat, this.state.lng]}
                     minZoom={14}
@@ -58,7 +60,7 @@ export default class MainMap extends React.Component {
                         L.latLng(44.425751, 25.83787)
                     )}
                     zoom={15}>
-
+                    
                     <MapBoxGLLayer/>
                     {
                         this.state.markers.map((content, idx) => (
@@ -95,7 +97,8 @@ export default class MainMap extends React.Component {
                         onLocationOutsideMapBounds: ()=>alert('Solander este disponibil doar in Ciorogarla momentan. Poti continua sa vezi harta, totusi'),
                     }
                     }/>
-                </Map>
+                    </Map>
+                </Grow>
             )
         } else {
             return(

@@ -10,19 +10,22 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import List from '@material-ui/core/List'
+import Container from '@material-ui/core/Container'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core'
 import ExploreIcon from '@material-ui/icons/Explore'
-import InfoIcon from '@material-ui/icons/Info'
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import Brightness4RoundedIcon from '@material-ui/icons/Brightness4Rounded';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import BrightnessAutoIcon from '@material-ui/icons/BrightnessAuto';
+import AddLocationIcon from '@material-ui/icons/AddLocation';
+
 
 import firebase from 'firebase/app'
 import 'firebase/auth'
@@ -43,7 +46,7 @@ const useStyles = makeStyles((theme)=>({
 	},
 	drawer: {
 		borderRadius: '1rem 1rem 0 0',
-		maxWidth: '756px',
+		maxWidth: theme.breakpoints.width('sm'),
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	}
@@ -60,35 +63,40 @@ export default function Navbar(props) {
 
 
 	return(
+		<>
 		<AppBar color='default' position='fixed' className={style.root}>
-			<BottomNavigation showLabels className={style.nav} value={currentPage}
-				onChange={(event, newValue) => {
-					if(newValue !== 'noSwitch'){
-						setCurrentPage(newValue)
-					}
-				}
-				}>
-				<BottomNavigationAction
-					onClick={()=>history.push('/')}
-					value='/'
-					label='Hartă'
-					icon={<ExploreIcon/>}/>
-				<BottomNavigationAction
-					onClick={()=>history.push('/info')}
-					value='/info'
-					label='Info' 
-					icon={<InfoIcon/>}/>
-				<BottomNavigationAction
-					onClick={()=>{setLoginMenu(true)}}
-					value='noSwitch'
-					label='Cont'
-					icon={props.auth ? <Avatar className={style.avatar} src={props.auth.photoURL} referrerPolicy="no-referrer"/> : <AccountCircleRoundedIcon/>}/>
-				<BottomNavigationAction
-					onClick={()=>{setThemeMenu(true)}}
-					value='noSwitch'
-					label='Temă'
-					icon={<Brightness4RoundedIcon/>}/>		
-			</BottomNavigation>
+			<Container maxWidth='sm'>
+				<BottomNavigation showLabels className={style.nav} value={currentPage}
+					onChange={(event, newValue) => {if(newValue !== 'noSwitch') setCurrentPage(newValue)}}>
+					<BottomNavigationAction
+						onClick={()=>history.push('/')}
+						value='/'
+						label='Hartă'
+						icon={<ExploreIcon/>}/>
+					<BottomNavigationAction
+						onClick={()=>history.push('/info')}
+						value='/info'
+						label='Info' 
+						icon={<LiveHelpIcon/>}/>
+					<BottomNavigationAction
+						onClick={()=>{setLoginMenu(true)}}
+						value='noSwitch'
+						label='Cont'
+						icon={props.auth ? <Avatar className={style.avatar} src={props.auth.photoURL} referrerPolicy="no-referrer"/> : <AccountCircleRoundedIcon/>}/>
+					<BottomNavigationAction
+						onClick={()=>history.push('/add')}
+						value='/add'
+						label='Adaugă'
+						icon={<AddLocationIcon/>}/>
+					<BottomNavigationAction
+						onClick={()=>{setThemeMenu(true)}}
+						value='noSwitch'
+						label='Temă'
+						icon={<Brightness4RoundedIcon/>}/>
+					</BottomNavigation>
+				</Container>
+			</AppBar>
+
 			<SwipeableDrawer
 				open={loginMenu}
 				onClose={()=>setLoginMenu(false)}
@@ -115,7 +123,7 @@ export default function Navbar(props) {
 								<ListItemAvatar>
 									<Avatar className={style.avatar} src={require('../assets/auth-providers/google.png')}/>
 								</ListItemAvatar>
-								<ListItemText primary='Login with Google'/>
+								<ListItemText primary='Sign in with Google'/>
 							</ListItem>
 							<ListItem button onClick={()=>{
 								var facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
@@ -128,7 +136,7 @@ export default function Navbar(props) {
 								<ListItemAvatar>
 									<Avatar className={style.avatar} src={require('../assets/auth-providers/facebook.png')}/>
 								</ListItemAvatar>
-								<ListItemText primary='Login with Facebook'/>
+								<ListItemText primary='Sign in with Facebook'/>
 							</ListItem>
 						</>
 					)}
@@ -197,6 +205,6 @@ export default function Navbar(props) {
 					</ListItem>
 					</List>
 			</SwipeableDrawer>
-		</AppBar>
+		</>
 	)
 }

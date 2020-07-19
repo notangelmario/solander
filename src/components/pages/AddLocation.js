@@ -1,58 +1,90 @@
 import React from 'react'
-import './page.css'
-import { notify } from '../layout/Notif'
-import { ReactComponent as AddIcon } from '../assets/icons/add.svg'
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+import Grid from '@material-ui/core/Grid'
+import Avatar from '@material-ui/core/Avatar'
+import { makeStyles } from '@material-ui/core/styles'
+import Grow from '@material-ui/core/Grow'
+import Card from '@material-ui/core/Card'
+import IconButton from '@material-ui/core/IconButton'
+import Chip from '@material-ui/core/Chip'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import icons from '../icons.module.css'
-import { ReactComponent as View } from '../assets/icons/view.svg'
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import DoneIcon from '@material-ui/icons/Done'
+import AddLocationIcon from '@material-ui/icons/AddLocation';
 
-export default class AddLocation extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            markerSubs: [],
-            loading: true
-        }
+
+
+const useStyles = makeStyles(theme=>({
+    root: {
+        paddingTop: theme.spacing(6),
+        paddingBottom: theme.spacing(9),
+        width: '100%'
+    },
+    iconContain: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignContent: 'center',
+    },
+    icon :{
+        width: '32px',
+        height: '32px',
+    },
+    card: {
+        minWidth: theme.breakpoints.width('sm')
     }
-    componentDidMount() {
-        firebase.firestore().collection('marker_subs').get().then(snap => {
-            snap.forEach(marker_sub => {
-                this.state.markerSubs.push({
-                    icon: marker_sub.data().icon,
-                    title: marker_sub.data().title,
-                    position: marker_sub.data().position,
-                    status: marker_sub.data().status,
-                })
-            })
-        }).then(()=> this.setState({loading: false}))
-    }
-    
-    render(){
-        if (!this.state.loading) {
-            return(
-                <div id='page'>
-                    <div className='addLocation' onClick={()=>{
-                        if(!this.props.auth) {
-                            notify('Trebuie sa fii logat ca sa poti adauga pe harta')
-                        }
-                        }}>
-                        <AddIcon/>
-                        <p>Adaugă locație</p>
-                    </div>
-                    <div className='e-separator not-wide diamond'></div>
-                    {this.state.markerSubs.map((content, idx) => (
-                        <div className='addSub' key={`addSub-${idx}`}>
-                            <div className={icons[content.icon]} id="icon"></div>
-                            <h3>{content.title}</h3>
-                            <span className={content.status}></span>
-                            <View className='addSubPreview'/>
-                        </div>
-                    ))}
-                </div>
-            )
-        } else {
-            return <div className={icons.loading}></div>
-        }
-    }
+}))
+
+export default function AddLocation() {
+    const style = useStyles()
+
+    return(
+        <Grow in>
+			<Grid
+				className={style.root}
+				direction='column'
+				justify='flex-start'
+                alignItems='center'
+				container
+				>
+				<Grid item xs={11} md={8} lg={6}>
+					<Card className={style.card}>
+                        <List>
+                            <ListItem divider>
+                                <ListItemAvatar>
+                                    <Avatar>
+                                        <AddLocationIcon/>
+                                    </Avatar>
+                                </ListItemAvatar>
+                                <ListItemText primary='Sugestii de locatie' secondary='Aici sunt toate sugestiile pentru locatii noi'/>
+                            </ListItem>
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar>
+                                        <div className={[icons.iconMeeting, style.icon].join(' ')}/>
+                                    </Avatar>
+                                </ListItemAvatar>
+                                <ListItemText primary='Baia maree'/>
+                                <ListItemSecondaryAction>
+                                    <Chip
+                                        icon={<DoneIcon/>}
+                                        color='primary'
+                                        label='Verified'
+                                    />
+                                    <IconButton>
+                                        <VisibilityIcon/>
+                                    </IconButton>
+                                </ListItemSecondaryAction>
+                            </ListItem>
+                        </List>
+                    </Card>
+				</Grid>
+			</Grid>
+		</Grow>
+    )
 }

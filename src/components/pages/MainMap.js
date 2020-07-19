@@ -12,8 +12,8 @@ import 'firebase/firestore'
 export default class MainMap extends React.Component {
     state = {
         loading: true,
-        lat: 44.444469,
-        lng: 25.892345,
+        lat: 44.443227,
+        lng: 25.878439,
         markers: [],
         icons: {
 	    	'iconWarn1': [L.divIcon({ className: icons.iconWarn1, iconSize: 24 }), '#ffd600'],

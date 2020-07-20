@@ -1,5 +1,5 @@
 import React from 'react'
-import { Map } from 'react-leaflet'
+import { Map, Marker } from 'react-leaflet'
 import MapBoxGLLayer from '../engine/MapBoxGLLayer'
 import L from 'leaflet'
 import icons from '../icons.module.css'
@@ -15,10 +15,11 @@ const mapIcons = {
 }
 
 export default function MiniMap(props) {
+    const [markerPos, setMarkerPos] = React.useState([44.466927, 25.905418])
     return(
         <Map
             style={props.mapStyle}
-            center={[44.443227, 25.878439]}
+            center={props.previewOptions.new ? [44.443227, 25.878439] : props.previewOptions.position}
             minZoom={14}
             maxZoom={20}
             zoomControl={false}
@@ -27,8 +28,21 @@ export default function MiniMap(props) {
                 L.latLng(44.466927, 25.905418),
                 L.latLng(44.425751, 25.83787)
             )}
-            zoom={15}>
+            zoom={props.previewOptions.new ? 15 : 18}
+            onClick={(e)=>{
+                setMarkerPos(e.latlng)
+                props.setMarker(e.latlng)
+                }}>
             <MapBoxGLLayer/>
+            {!props.previewOptions.new && (
+                <Marker
+                    position={props.previewOptions.position}
+                    icon={mapIcons[props.previewOptions.icon][0]}>
+                </Marker>
+            )}
+            {props.previewOptions.new && (
+                <Marker position={markerPos}/>
+            )}
         </Map>
     )
 }

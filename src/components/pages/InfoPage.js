@@ -20,7 +20,12 @@ const useStyles = makeStyles(theme=>({
 	card: {
 		backgroundColor: theme.palette.error.dark,
 		color: theme.palette.error.contrastText
-	}
+	},
+	centered: {
+        display: 'inline-block',
+        width: theme.breakpoints.width('sm'),
+        maxWidth: '80vw'
+    }
 }))
 
 
@@ -35,7 +40,7 @@ export default function InfoPage(props) {
 				alignItems='center'
 				container
 				>
-				<Grid item xs={11} md={8} lg={6}>
+				<Grid className={style.centered} item xs={11} md={8} lg={6}>
 					<Card className={style.card}>
 						<CardContent>
 							<Typography>

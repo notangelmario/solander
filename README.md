@@ -3,15 +3,12 @@
   <br/>
   <br/>
   <img alt="Dependencies" src="https://img.shields.io/david/clandestinz/solander?logo=npm">
-  <img alt="Discord" src="https://img.shields.io/discord/728228656333324289?logo=discord">
   <img alt="Status" src="https://img.shields.io/website?down_message=offline&label=status&up_message=online&url=https%3A%2F%2Fsolander.web.app">
   <img alt="Stable Version" src="https://img.shields.io/badge/stable_version-0.5-red">
   <img alt="Dev Version" src="https://img.shields.io/badge/dev_version-0.8-orange">
 </p>
 
 ***Acesta este repo-ul oficial al aplicatiei Solander.***
-
-Daca vrei sa ajuti proiectul Solander, intra pe server-ul meu de [Discord](https://discord.gg/MvsMkMN)
 
 ## Detalii
 * Solander este construit cu [React](https://reactjs.org/) (folosit de: Facebook, Instagram, Netflix, Discord, etc).
@@ -34,7 +31,7 @@ Pentru a creea un build static, ruleaza `npm run build`.
 A: Trebuie sa stii sa te joci cu JSX, CSS, Git, React. Nu este nici o problema daca nu stii astea, dar este necesar macar sa stii cum functioneaza programarea.
 
 > Q: Vreau sa ajut, dar nu stiu sa programez.  
-A: Nu este nici o problema. Poti sa te alaturi server-ului de Discord si sa sugerezi schimbari sau sa gasesti probleme. Saaaau, ca ultima optiune, ai mai sus un buton sponsor, unde poti dona prin PayPal.
+A: Nu este nici o problema. Poti sa sugerezi schimbari sau sa gasesti probleme. Saaaau, ca ultima optiune, ai mai sus un buton sponsor, unde poti dona prin PayPal.
 
 > Q: Pot sa fur Solander?  
 A: Desigur, totusi doar ca proiect personal, non-comercial.

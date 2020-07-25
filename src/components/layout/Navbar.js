@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme)=>({
 	},
 	nav: {
 		backgroundColor: 'transparent',
+		maxWidth: '90vw',
 	},
 	avatar: {
 		width: '24px',
